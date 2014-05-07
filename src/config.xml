@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget
+	xmlns="http://www.w3.org/ns/widgets"
+	xmlns:gap="http://phonegap.com/ns/1.0"
+	id="com.lostincode.cuteaddict"
+	version="1.0"
+	versionCode="1"
+	>
+
+	<name>Cute Addict</name>
+
+	<description>
+View a regularly updated feed of cute animal pictures.
+
+Cute Addict feeds your needs for all things cute, by scouring the web for the latest pics of kittens, puppies, grumpy cats, pugs caught in blinds and monkeys making amusing faces.
+
+The app concentrates on just doing one thing well - simple interface, no ads, no extra permissions, no price tag, tiny file size.
+	</description>
+
+	<author href="http://www.lostincode.co.uk" email="cuteaddict@lostincode.co.uk">Lost in Code</author>
+	
+	<preference name="orientation" value="both" />
+	<preference name="target-device" value="handset" />
+
+	<preference name="webviewbounce" value="false" />
+	
+	<preference name="permissions" value="none"/>
+	
+	<!-- PLUGINS -->	
+	<!-- iOS -->
+	<feature name="InAppBrowser">
+		<param name="ios-package" value="CDVInAppBrowser" />
+	</feature>
+
+	<!-- Android -->
+	<feature name="InAppBrowser">
+		<param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+	</feature>
+	
+	<!-- URL WHITELISTING -->	
+	<access origin="*" subdomains="true" />
+	
+	<!-- ICONS -->
+	<icon src="icons/drawable-xhdpi.png" width="96" height="96"/>
+	<icon src="icons/drawable-hdpi.png"  width="72" height="72"/>
+	<icon src="icons/drawable-mdpi.png"  width="48" height="48"/>
+	<icon src="icons/drawable-ldpi.png"  width="36" height="36"/>
+	
+	<icon src="icons/drawable.png"/>
+</widget>

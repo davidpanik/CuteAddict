@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Cute Addict</title>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+		
+		<link type="text/css" rel="stylesheet" media="all" href="./css/reset.css"/>
+		<link type="text/css" rel="stylesheet" media="all" href="./css/main.css"/>
+	</head>
+	
+	<body>
+		<div id="content" class="fullHeight fullWidth">Loading...</div>
+	
+		<div id="help" class="fullHeight fullWidth overlay">
+			<h2 class="first"><img src="./img/gesture_swipe_left.png"/><br/>Swipe for more content</h2>
+			<h2 class="second">Tap to get details<br/><img src="./img/gesture_tap.png"/></h2>
+		</div>
+	
+		<div id="about" class="fullHeight fullWidth overlay">
+			<h2>Cute Addict<br/><img src="./img/happy_kitty.png"/></h2>
+
+			<h3>Design &amp development</h3>
+			<h4>David Storey</h4>
+			
+			<h3>Comfortaa font</h3>
+			<h4>Johan Aakerlund</h4>
+			
+			<h3>Kitty icons</h3>
+			<h4>Iconka.com</h4>
+		</div>
+		
+		<div id="error" class="fullHeight fullWidth overlay">
+			<h2>Oh no!<br/><img src="./img/surprised_kitty.png"/></h2>
+			
+			<h3 class="first">Something has gone wrong!</h3>
+
+			<h3 class="second">Maybe no network?</h3>
+		</div>
+	
+		<div id="loading" class="fullWidth fullHeight">
+			<div class="fullWidth fullHeight spin"></div>
+			<h2 class="first">Cute</h2>
+			<h2 class="second">Addict</h2>
+		</div>
+	
+		<script src="./phonegap.js"></script>
+	
+		<script src="./js/vendor/jquery.min.js"></script>
+		<script src="./js/vendor/underscore.min.js"></script>
+		<script src="./js/vendor/backbone.min.js"></script>
+		<script src="./js/vendor/hammer.min.js"></script>
+		
+		<script src="./js/common.js"></script>
+		<script src="./js/main.js"></script>
+		
+		<script src="./js/Models.js"></script>
+		<script src="./js/Views.js"></script>
+		<script src="./js/Collections.js"></script>
+
+		<script src="./data/cute.js"></script>
+
+		<script type="text/javascript">
+			(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,"script","./js/vendor/analytics.js","ga");
+
+			var uuid = "01234567-89ab-cdef-ghij-klmnopqrstuv";
+			if (typeof(device) != "undefined" && typeof(device.uuid) != "undefined") uuid = device.uuid;
+
+			ga("create", "UA-45462422-5", {
+				"storage": "none",
+				"clientId": uuid
+			});
+			
+			ga("send", "pageview", {"page": "/home"});
+		</script>		
+		
+		<script id="itemTemplate" type="text/template">
+			<div class="fullWidth fullHeight largeItem" style="background-image: url(<%= image %>);"></div>
+			
+			<a class="fullWidth itemDetail" href="<%= link %>" target="_blank">
+				<div>					
+					<h2><%= title %></h2>
+					<h3><span class="first"><img src="<%= icon %>"/> <%= source %></span> <span class="second">(<%= time %>)</span></h3>
+				</div>
+			</a>
+		</script>
+	</body>
+</html>

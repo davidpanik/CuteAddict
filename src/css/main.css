@@ -1,0 +1,430 @@
+/* ============ GENERAL ============ */
+
+.selfClearing:after {
+	content: " "; 
+	display: block; 
+	height: 0; 
+	clear: both;
+	visibility: hidden;
+}
+
+.selfClearing {
+	*zoom: 1;
+}
+
+body {
+	overflow: hidden;
+	background: #3E3E51 url(../img/noise/purple.png);
+	font-family: "comfortaaregular";
+	color: #000;
+	font-size: 100%;
+}
+
+h1, h2, h3, h4 {
+	text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.5);
+	letter-spacing: 0.2em;
+}
+
+
+/* ============ MAIN ============ */
+
+#content {
+	overflow: hidden;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.items {
+	overflow: hidden;
+}
+
+
+/* ============ ITEM ============ */
+
+.item {
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	background: transparent url(../img/surprised_kitty.png) no-repeat center center;
+	transition: -webkit-transform 0.5s ease-out, left 0.3s;
+	transition: -moz-transform    0.5s ease-out, left 0.3s;
+	transition: -ms-transform     0.5s ease-out, left 0.3s;
+	transition: transform         0.5s ease-out, left 0.3s;
+}
+
+.items.instant .item {
+	transition: -webkit-transform 0;
+	transition: -moz-transform 0;
+	transition: -ms-transform 0;
+	transition: transform 0;
+}
+
+.item.firstStop {
+	left: 50px;
+}
+
+.item.lastStop {
+	left: -50px;
+}
+
+.largeItem {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	opacity: 0;
+	/*transition: opacity 1s ease-out;*/
+}
+
+.item.loaded .largeItem {
+	opacity: 1;
+}
+
+.item.cover .largeItem {
+	background-size: cover;
+}
+
+.itemDetail {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	height: 50%;
+	background-color: rgba(255, 255, 255, 0.6);
+	text-decoration: none;
+	color: #000;
+	overflow: hidden;
+	-webkit-transform: translatey(100%);
+	-moz-transform:    translatey(100%);
+	-ms-transform:     translatey(100%);
+	transform:         translatey(100%);
+	transition: -webkit-transform 0.5s ease-out;
+	transition: -moz-transform    0.5s ease-out;
+	transition: -ms-transform     0.5s ease-out;
+	transition: transform         0.5s ease-out;
+}
+
+.itemDetail.active {
+	-webkit-transform: translatey(0);
+	-moz-transform:    translatey(0);
+	-ms-transform:     translatey(0);
+	transform:         translatey(0);
+}
+
+.itemDetail div {
+	margin: 5%;
+}
+
+.itemDetail h2,
+.itemDetail h3 {
+	text-shadow: none;
+}
+
+.itemDetail h2 {
+	font-size: 6em; /* vm */
+	margin-bottom: 0.5em;
+	font-weight: bold;
+	line-height: 1.1em;
+}
+
+.itemDetail h3 {
+	font-size: 4em; /* vm */
+}
+
+.itemDetail img {
+	height: 0.8em;
+}
+
+.itemDetail h3 span.first {
+	margin-bottom: 0.2em;
+}
+
+.itemDetail h3 span.second {
+	opacity: 0.6;
+}
+
+.itemDetail .first,
+.itemDetail .second {
+	float: left;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+
+/* ============ LOADING ============ */
+
+#loading div {	
+	position: fixed;
+	background: transparent url(../img/kitty_no_shadow.png) no-repeat center center;
+	z-index: 20;
+	top: 0;
+	left: 0;
+}
+
+#loading h2 {
+	width: 100%;
+	font-size: 20em;	/* vm */
+	margin: 1em 0;
+	text-align: center;
+	color: #DDD;	
+}
+
+#loading h2.second {
+	position: fixed;
+	bottom: 0;
+}
+
+
+/* ============ HELP ============ */
+
+#help {
+	background-color: rgba(255, 255, 255, 0.6);
+	text-align: center;
+	z-index: 4;
+}
+
+#help h2 {
+	width: 100%;
+	color: #000;
+}
+
+#help h2 {
+	font-size: 11em;	/* vm */
+	margin: 0.5em 0;
+}
+
+#help h2 img {
+	height: 2.5em;
+}
+
+#help h2.first img {
+	margin-bottom: 0.5em;
+}
+
+#help h2.second img {
+	margin-top: 0.5em;
+}
+
+#help h2.second {
+	position: fixed;
+	bottom: 0;
+}
+
+
+/* ============ ABOUT / ERROR============ */
+
+#about,
+#error {
+	text-align: center;
+	color: #85919E;
+	z-index: 8;
+}
+
+#about h2,
+#error h2 {
+	font-size: 10em; /* vm */
+	font-weight: bold;
+	margin: 1em 1em 0.5em 1em;
+	color: #DDD;
+}
+
+#about h2 img,
+#error h2 img {
+	margin-top: 1em;
+	height: 2em;
+}
+
+#about h3,
+#error h3 {
+	font-size: 7em; /* vm */
+	font-weight: bold;
+	margin: 1.3em 0.5em 0 0.5em;
+}
+
+#about h4,
+#error h4 {
+	font-size: 7em;	/* vm */
+	margin: 0.5em 0.5em 0 0.5em;
+	color: #DDD;
+}
+
+
+/* ============ ANIMATION ============ */
+
+.spin {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(360deg); }
+    to { -ms-transform: rotate(0deg); }
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(360deg); }
+    to { -moz-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(360deg); }
+    to { -webkit-transform: rotate(0deg); }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(360deg);
+    }
+    to {
+        transform:rotate(0deg);
+    }
+}
+
+
+.bounceLeft {
+    -webkit-animation-name: bounceLeft;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: bounceLeft;
+    -moz-animation-duration: 300ms;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: bounceLeft;
+    -ms-animation-duration: 300ms;
+    -ms-animation-iteration-count: 1;
+    -ms-animation-timing-function: linear;
+    
+    animation-name: bounceLeft;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+@-ms-keyframes bounceLeft {
+	0%  { -ms-transform: translatex(0); }
+	50% { -ms-transform: translatex(10%); }
+	100%{ -ms-transform: translatex(0); }
+}
+
+@-moz-keyframes bounceLeft {
+	0%  { -moz-transform: translatex(0); }
+	50% { -moz-transform: translatex(10%); }
+	100%{ -moz-transform: translatex(0); }
+}
+
+@-webkit-keyframes bounceLeft {
+	0%  { -webkit-transform: translatex(0); }
+	50% { -webkit-transform: translatex(10%); }
+	100%{ -webkit-transform: translatex(0); }
+}
+
+@keyframes bounceLeft {
+	0%  { transform: translatex(0); }
+	50% { transform: translatex(10%); }
+	100%{ transform: translatex(0); }
+}
+
+
+.bounceRight {
+    -webkit-animation-name: bounceRight;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: bounceRight;
+    -moz-animation-duration: 300ms;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: bounceRight;
+    -ms-animation-duration: 300ms;
+    -ms-animation-iteration-count: 1;
+    -ms-animation-timing-function: linear;
+    
+    animation-name: bounceRight;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+@-ms-keyframes bounceRight {
+	0%  { -ms-transform: translatex(0); }
+	50% { -ms-transform: translatex(-10%); }
+	100%{ -ms-transform: translatex(0); }
+}
+
+@-moz-keyframes bounceRight {
+	0%  { -moz-transform: translatex(0); }
+	50% { -moz-transform: translatex(-10%); }
+	100%{ -moz-transform: translatex(0); }
+}
+
+@-webkit-keyframes bounceRight {
+	0%  { -webkit-transform: translatex(0); }
+	50% { -webkit-transform: translatex(-10%); }
+	100%{ -webkit-transform: translatex(0); }
+}
+
+@keyframes bounceRight {
+	0%  { transform: translatex(0); }
+	50% { transform: translatex(-10%); }
+	100%{ transform: translatex(0); }
+}
+
+
+
+/* ============ FONTS ============ */
+
+@font-face {
+    font-family: 'comfortaabold';
+    src: url('../fonts/comfortaa/comfortaa_bold-webfont.eot');
+    src: url('../fonts/comfortaa/comfortaa_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/comfortaa/comfortaa_bold-webfont.woff') format('woff'),
+         url('../fonts/comfortaa/comfortaa_bold-webfont.ttf') format('truetype'),
+         url('../fonts/comfortaa/comfortaa_bold-webfont.svg#comfortaabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'comfortaaregular';
+    src: url('../fonts/comfortaa/comfortaa_regular-webfont.eot');
+    src: url('../fonts/comfortaa/comfortaa_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/comfortaa/comfortaa_regular-webfont.woff') format('woff'),
+         url('../fonts/comfortaa/comfortaa_regular-webfont.ttf') format('truetype'),
+         url('../fonts/comfortaa/comfortaa_regular-webfont.svg#comfortaaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'comfortaathin';
+    src: url('../fonts/comfortaa/comfortaa_thin-webfont.eot');
+    src: url('../fonts/comfortaa/comfortaa_thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/comfortaa/comfortaa_thin-webfont.woff') format('woff'),
+         url('../fonts/comfortaa/comfortaa_thin-webfont.ttf') format('truetype'),
+         url('../fonts/comfortaa/comfortaa_thin-webfont.svg#comfortaathin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
